@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjektExpress.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label 
+                Text="Wartości X i Y"
+                FontSize="50"
+                HorizontalTextAlignment="Center"
+                />
+
+            <ListView x:Name="MatrixXY" HorizontalOptions="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell>
+                            <TextCell.Text>
+                                <MultiBinding StringFormat="X: {0}, Y: {1}">
+                                    <Binding Path="X" />
+                                    <Binding Path="Y" />
+                                </MultiBinding>
+                            </TextCell.Text>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Entry 
+                x:Name="PodajX"
+                Placeholder="Podaj wartość X"
+                WidthRequest="300"
+                Keyboard="Numeric"
+                />
+
+            <Entry 
+                x:Name="PodajY"
+                Placeholder="Podaj wartość Y"
+                WidthRequest="300"
+                Keyboard="Numeric"
+                />
+
+            <Button 
+                x:Name="Dodaj"
+                Text="Dodaj"
+                WidthRequest="200"
+                Clicked="DodajWartosc"
+                />
+
+            <Button 
+                x:Name="Wyslij"
+                Text="Wyślij"
+                WidthRequest="200"
+                Clicked="WyslijDane"
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
